@@ -193,6 +193,35 @@ homedoc-labs/
         ✅Future: Aggregate anonymized data for SDG reports to NGOs.
 
 
+ # Contributing
+
+ Contributions are welcome! Fork the repo, create a branch, and submit a PR. Focus areas:
+         ✨Add payments (Stripe integration).
+         
+         ✨Implement real AI diagnostics.
+         
+         ✨Enhance UI with Bootstrap or Material-UI.
+         
+         ✨Add tests (Jest for backend/frontend).
+
+         🚨Please follow code style (ESLint recommended) and include tests for new features.
+
+ # License
+
+   This project is licensed under the MIT License. See LICENSE for details.
+
+
+
+
+
+    
+
+
+
+
+
+
+
 
 
 
