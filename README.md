@@ -82,8 +82,7 @@ homedoc-labs/
 │       └── devices.js
 
 └── client/
-
-    ├── package.json            # Frontend dependencies
+ ├── package.json            # Frontend dependencies
     
     ├── src/
     
@@ -121,15 +120,15 @@ homedoc-labs/
     
     3. Backend Setup:
 
-    cd server
-    npm install
+         cd server
+         npm install
 
-    ✅ Create a .env file (if scaling): Add JWT_SECRET=yoursecret and MONGO_URI=yourmongouri.
+         ✅ Create a .env file (if scaling): Add JWT_SECRET=yoursecret and MONGO_URI=yourmongouri.
 
     4.Frontend Setup:
 
-    cd ../client
-    npm install
+         cd ../client
+         npm install
 
 
     5.Seed Data (Optional):
@@ -146,52 +145,52 @@ homedoc-labs/
 
 1. Run the Backend:
    
-   cd server
+       cd server
    
-   npm start
+       npm start
 
 2.Run the Frontend:
 
-   cd client
+        cd client
 
-   npm start
+        npm start
 
-  ✅ App opens at http://localhost:3000.
+   ✅ App opens at http://localhost:3000.
 
 
 
 3.Testing the App:
-
-   🧿Register/login via API (e.g., Postman: POST /api/auth/register).
+ 
+        🧿Register/login via API (e.g., Postman: POST /api/auth/register).
    
-   🧿Browse and book tests/devices from the dashboard.
+        🧿Browse and book tests/devices from the dashboard.
    
-   🧿View SDG progress (mock data in App.js; integrate with user API for real).
+        🧿View SDG progress (mock data in App.js; integrate with user API for real).
    
-   🧿Check MongoDB collections for bookings.
+        🧿Check MongoDB collections for bookings.
 
  4.Example Flows:
 
-   🍀Book a Test: Select from list, choose home location → See CO2 savings.
+        🍀Book a Test: Select from list, choose home location → See CO2 savings.
  
-   🍀Rent a Device: Pick CGM, set duration → Auto-apply discounts if low-income.
+        🍀Rent a Device: Pick CGM, set duration → Auto-apply discounts if low-income.
 
-   🍀Track Goals: Update progress in user profile (extend User model as needed).
+        🍀Track Goals: Update progress in user profile (extend User model as needed).
 
 
 # SDG Impact
 
   This app isn't just functional—it's impactful:
   
-      ✅Health Promotion (SDG 3): 
+        ✅Health Promotion (SDG 3): 
   
-      ✅Enables continuous monitoring to prevent diseases.
+        ✅Enables continuous monitoring to prevent diseases.
   
-      ✅Inclusivity (SDG 10): Dynamic discounts based on user profiles.
+        ✅Inclusivity (SDG 10): Dynamic discounts based on user profiles.
 
-      ✅Sustainability (SDG 13): Reduces travel emissions; tracks and reports savings.
+        ✅Sustainability (SDG 13): Reduces travel emissions; tracks and reports savings.
 
-      ✅Future: Aggregate anonymized data for SDG reports to NGOs.
+        ✅Future: Aggregate anonymized data for SDG reports to NGOs.
 
 
 
