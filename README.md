@@ -2,7 +2,7 @@
 
 # Overview
 
- HomeDoc Labs is a mission-driven web application built with the MERN stack (MongoDB, Express.js, React, Node.js) that brings accessible, sustainable healthcare services to users' doorsteps. It allows users to book at-home doctor consultations, lab tests, and rent medical   devices like Continuous Glucose Monitors (CGM) and Blood Pressure Machines at discounted rates. What makes it unique is its alignment with the United Nations Sustainable Development Goals (SDGs), specifically:
+ Homedoc Labs is a mission-driven web application built with the MERN stack (MongoDB, Express.js, React, Node.js) that brings accessible, sustainable healthcare services to users' doorsteps. It allows users to book at-home doctor consultations, lab tests, and rent medical   devices like Continuous Glucose Monitors (CGM) and Blood Pressure Machines at discounted rates. What makes it unique is its alignment with the United Nations Sustainable Development Goals (SDGs), specifically:
     
     🍀 SDG 3: Good Health and Well-Being – Promoting preventive care and early detection.
     🍀SDG 10: Reduced Inequalities – Offering subsidies and discounts for underserved communities.
@@ -147,7 +147,66 @@ homedoc-labs/
 1. Run the Backend:
    
    cd server
+   
    npm start
+
+2.Run the Frontend:
+
+   cd client
+
+   npm start
+
+  ✅ App opens at http://localhost:3000.
+
+
+
+3.Testing the App:
+
+   🧿Register/login via API (e.g., Postman: POST /api/auth/register).
+   
+   🧿Browse and book tests/devices from the dashboard.
+   
+   🧿View SDG progress (mock data in App.js; integrate with user API for real).
+   
+   🧿Check MongoDB collections for bookings.
+
+ 4.Example Flows:
+
+   🍀Book a Test: Select from list, choose home location → See CO2 savings.
+ 
+   🍀Rent a Device: Pick CGM, set duration → Auto-apply discounts if low-income.
+
+   🍀Track Goals: Update progress in user profile (extend User model as needed).
+
+
+# SDG Impact
+
+  This app isn't just functional—it's impactful:
+  
+      ✅Health Promotion (SDG 3): 
+  
+      ✅Enables continuous monitoring to prevent diseases.
+  
+      ✅Inclusivity (SDG 10): Dynamic discounts based on user profiles.
+
+      ✅Sustainability (SDG 13): Reduces travel emissions; tracks and reports savings.
+
+      ✅Future: Aggregate anonymized data for SDG reports to NGOs.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
