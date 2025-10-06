@@ -142,6 +142,12 @@ homedoc-labs/
           
           ✨Example Device: { "name": "Continuous Glucose Monitor", "baseFee": 20, "discount": 0.2, "inventory": 10, "sdgImpact": "SDG 3: Diabetes management" }
 
+# Usage
+
+1. Run the Backend:
+   cd server
+   npm start
+
 
 
 
