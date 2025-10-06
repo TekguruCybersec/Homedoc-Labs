@@ -54,19 +54,33 @@ This project serves as an MVP (Minimum Viable Product) for a holistic health pla
 # Project Structure
 
 homedoc-labs/
+
 ├── server/
-│   ├── index.js                # Server entry point
+
+│   ├── index.js   # Server entry point
+
 │   ├── package.json            # Backend dependencies
+
 │   ├── models/                 # Mongoose schemas
+
 │   │   ├── User.js
+
 │   │   ├── Appointment.js
+
 │   │   ├── Test.js
+
 │   │   └── Device.js
+
 │   └── routes/                 # API routes
+
 │       ├── auth.js
+
 │       ├── appointments.js
+
 │       ├── tests.js
+
 │       └── devices.js
+
 └── client/
     ├── package.json            # Frontend dependencies
     ├── src/
