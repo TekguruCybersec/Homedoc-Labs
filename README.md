@@ -12,20 +12,33 @@ This project serves as an MVP (Minimum Viable Product) for a holistic health pla
 
 # Features
 ✅User Authentication: Secure registration and login with JWT.
+
 ✅Booking System:
+
      ✨Schedule virtual or at-home doctor consultations.
+     
      ✨Book lab tests (e.g., blood work, allergy panels) with results upload and preliminary AI insights.
+     
      ✨Rent devices (CGM, Blood Pressure Machines) at discounted fees, with inventory management and return tracking.
 
 ✅SDG Integration:
+
       ✨Personalized health goal trackers with progress bars and badges.
+      
       ✨CO2 savings calculations for home-based services.
+      
       ✨Extra discounts for low-income users (SDG 10).
 
-✅Admin Capabilities: Add/manage tests and devices (basic routes included).
+✅Admin Capabilities: 
+
+      ✨Add/manage tests and devices (basic routes included).
+      
 ✅Additional Twists:
+
      ✨Gamified user experience for SDG-aligned goals.
+     
      ✨Potential for real-time chat (Socket.io placeholder).
+     
      ✨Anonymized data reports for public health insights (ethical, consent-based).
 
 
