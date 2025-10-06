@@ -145,6 +145,7 @@ homedoc-labs/
 # Usage
 
 1. Run the Backend:
+   
    cd server
    npm start
 
