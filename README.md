@@ -82,17 +82,29 @@ homedoc-labs/
 │       └── devices.js
 
 └── client/
+
     ├── package.json            # Frontend dependencies
+    
     ├── src/
+    
     │   ├── App.js              # Main React app
+    
     │   ├── index.js            # React entry
+    
     │   ├── services/
+    
     │   │   └── api.js          # API service helpers
+    
     │   └── components/         # React components
+    
     │       ├── SDGTracker.js
+    
     │       ├── TestsList.js
+    
     │       └── DevicesList.js
+    
     └── public/                 # Static assets
+    
         └── index.html
 
 # Installation
@@ -107,7 +119,39 @@ homedoc-labs/
     git clone https://github.com/yourusername/homedoc-labs.git
     cd homedoc-labs
     
+    3. Backend Setup:
 
+    cd server
+    npm install
+
+    ✅ Create a .env file (if scaling): Add JWT_SECRET=yoursecret and MONGO_URI=yourmongouri.
+
+    4.Frontend Setup:
+
+    cd ../client
+    npm install
+
+
+    5.Seed Data (Optional):
+
+      ✅Start MongoDB.
+     
+          ✨Use tools like Postman to add sample tests/devices via /api/tests and /api/devices POST routes.
+          
+          ✨Example Test: { "name": "Complete Blood Count", "price": 50, "sdgImpact": "SDG 3: Early detection" }
+          
+          ✨Example Device: { "name": "Continuous Glucose Monitor", "baseFee": 20, "discount": 0.2, "inventory": 10, "sdgImpact": "SDG 3: Diabetes management" }
+
+
+
+
+
+
+
+    
+
+
+ 
     
 
 
