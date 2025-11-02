@@ -42,6 +42,8 @@ By leveraging technology to create an easy-to-use platform for booking diagnosti
 * MongoDB (A local instance or a free MongoDB Atlas cluster)
 * `npm` (or `yarn`)
 
+----
+
 ### 1. Backend Setup
 
 
@@ -58,6 +60,7 @@ cp .env.example .env
 //Now, edit the .env file with your MongoDB connection string and a strong JWT secret:
 
  # Code snippet
+ 
 MONGO_URI=your_mongodb_connection_string
 JWT_SECRET=your_super_strong_secret_key
 
@@ -91,15 +94,23 @@ The React app will be running on http://localhost:5173.
 
 The React app will be running on http://localhost:5173.
 
+---
+---
+
 ## 🌐 API Endpoints
 
-### User API (/api/users)
+---
+
+## User API (/api/users)
 
 POST /register: Register a new user.
 
 POST /login: Log in a user.
 
-Test API (/api/tests)
+---
+
+## Test API (/api/tests)
+
 GET /: Get all available tests.
 
 GET /:id: Get a single test by ID.
@@ -108,12 +119,17 @@ POST /: (Admin) Create a new test.
 
 PUT /:id: (Admin) Update a test.
 
-Package API (/api/packages)
+---
+
+## Package API (/api/packages)
+
 GET /: Get all available packages.
 
 GET /:id: Get a single package by ID.
 
 POST /: (Admin) Create a new package.
+
+---
 
 ## Booking API (/api/bookings)
 
