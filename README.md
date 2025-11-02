@@ -1,232 +1,115 @@
 # Homedoc Labs
 
-# Overview
+Homedoc Labs is a full-stack MERN (MongoDB, Express.js, React, Node.js) web application designed to make preventative healthcare accessible and affordable. Users can browse, select, and book wellness tests and health packages for at-home sample collection.
 
- Homedoc Labs is a mission-driven web application built with the MERN stack (MongoDB, Express.js, React, Node.js) that brings accessible, sustainable healthcare services to users' doorsteps. It allows users to book at-home doctor consultations, lab tests, and rent medical   devices like Continuous Glucose Monitors (CGM) and Blood Pressure Machines at discounted rates. What makes it unique is its alignment with the United Nations Sustainable Development Goals (SDGs), specifically:
-    
-    🍀 SDG 3: Good Health and Well-Being – Promoting preventive care and early detection.
-    🍀SDG 10: Reduced Inequalities – Offering subsidies and discounts for underserved communities.
-    🍀 SDG 13: Climate Action – Encouraging home-based services to reduce carbon emissions, with CO2 savings trackers.
+This project is built with a modern tech stack, including **Tailwind CSS** for styling and **Vite** for a fast frontend experience.
 
-This project serves as an MVP (Minimum Viable Product) for a holistic health platform, incorporating gamification (badges for health goals), AI preliminary analysis (simulated), and community features.
+## 🌱 SDG Alignment
 
-# Features
-✅User Authentication: Secure registration and login with JWT.
+This project directly supports **Sustainable Development Goal 3 (SDG 3): Good Health and Well-being**.
 
-✅Booking System:
+By leveraging technology to create an easy-to-use platform for booking diagnostic tests, Homedoc Labs helps promote preventative healthcare, facilitate early diagnosis, and make essential health services more accessible to everyone.
 
-     ✨Schedule virtual or at-home doctor consultations.
-     
-     ✨Book lab tests (e.g., blood work, allergy panels) with results upload and preliminary AI insights.
-     
-     ✨Rent devices (CGM, Blood Pressure Machines) at discounted fees, with inventory management and return tracking.
+## ✨ Features
 
-✅SDG Integration:
+* **User Authentication:** Secure user registration and login with JWT (JSON Web Tokens).
+* **Browse Services:** Publicly view a catalog of individual wellness tests and bundled health packages.
+* **Booking System:** Authenticated users can book tests/packages for a specific date.
+* **User Dashboard:** Users can view their personal booking history and track the status of their appointments (e.g., Pending, Confirmed, Completed).
+* **Admin Panel:** (Role-based) Admins can perform CRUD (Create, Read, Update, Delete) operations on tests and packages and manage all user bookings.
 
-      ✨Personalized health goal trackers with progress bars and badges.
-      
-      ✨CO2 savings calculations for home-based services.
-      
-      ✨Extra discounts for low-income users (SDG 10).
+## 🛠 Tech Stack
 
-✅Admin Capabilities: 
+* **Frontend:** React (Vite), Tailwind CSS, React Router
+* **Backend:** Node.js, Express.js
+* **Database:** MongoDB (with Mongoose)
+* **Authentication:** JSON Web Tokens (JWT), bcrypt.js
 
-      ✨Add/manage tests and devices (basic routes included).
-      
-✅Additional Twists:
+---
 
-     ✨Gamified user experience for SDG-aligned goals.
-     
-     ✨Potential for real-time chat (Socket.io placeholder).
-     
-     ✨Anonymized data reports for public health insights (ethical, consent-based).
+## 📁 Project Structure
 
-# Technologies Used
+/homedoc-labs | ├── /backend | ├── /config # db.js | ├── /controllers # userController, testController, packageController, bookingController | ├── /middleware # authMiddleware, adminMiddleware | ├── /models # userModel, testModel, packageModel, bookingModel | ├── /routes # All API routes | ├── .env.example | ├── package.json | └── server.js # Main backend entry point | └── /frontend ├── /src | ├── /components # Navbar, TestCard, PackageCard, ProtectedRoute | ├── /context # AuthContext, CartContext | ├── /pages # HomePage, LoginPage, TestsPage, MyBookingsPage, AdminDashboard | ├── App.jsx | ├── index.css # Tailwind directives | └── main.jsx ├── tailwind.config.js ├── postcss.config.js └── package.json
 
-    ✨Frontend: React.js (with hooks, components like SDGTracker, TestsList, DevicesList), Axios for API calls, Reactstrap for UI, Recharts for charts (optional for progress visuals).
+---
+---
 
-    ✨Backend: Node.js, Express.js, MongoDB (with Mongoose for schemas), JWT for auth, Bcrypt for password hashing.
+## 🚀 Getting Started
 
-    ✨Other: CORS for cross-origin requests, Nodemailer for email confirmations (placeholder).
+### Prerequisites
 
-    ✨Future Integrations: Stripe for payments, TensorFlow.js for AI analysis, Google Maps for logistics, Socket.io for real-time features.
+* Node.js (v18.x or later)
+* MongoDB (A local instance or a free MongoDB Atlas cluster)
+* `npm` (or `yarn`)
 
-# Project Structure
+### 1. Backend Setup
 
-homedoc-labs/
+```bash
+# Clone the repository
+git clone [https://github.com/your-username/homedoc-labs.git](https://github.com/your-username/homedoc-labs.git)
+cd homedoc-labs/backend
 
-├── server/
+# Install dependencies
+npm install
 
-│   ├── index.js   # Server entry point
+# Create your environment file
+cp .env.example .env
 
-│   ├── package.json            # Backend dependencies
+//Now, edit the .env file with your MongoDB connection string and a strong JWT secret:
 
-│   ├── models/                 # Mongoose schemas
+ # Code snippet
+MONGO_URI=your_mongodb_connection_string
+JWT_SECRET=your_super_strong_secret_key
 
-│   │   ├── User.js
+ # Bash
+# Run the backend server
+npm run dev
 
-│   │   ├── Appointment.js
+The server will be running on http://localhost:5000 (or your configured port).
 
-│   │   ├── Test.js
+# 2. Frontend Setup
 
-│   │   └── Device.js
+# Open a new terminal
+cd homedoc-labs/frontend
 
-│   └── routes/                 # API routes
+# Install dependencies
+npm install
 
-│       ├── auth.js
+# Run the frontend development server
+npm run dev
 
-│       ├── appointments.js
+The React app will be running on http://localhost:5173.
 
-│       ├── tests.js
+🌐 API Endpoints
+User API (/api/users)
+POST /register: Register a new user.
 
-│       └── devices.js
+POST /login: Log in a user.
 
-└── client/
- ├── package.json            # Frontend dependencies
-    
-    ├── src/
-    
-    │   ├── App.js              # Main React app
-    
-    │   ├── index.js            # React entry
-    
-    │   ├── services/
-    
-    │   │   └── api.js          # API service helpers
-    
-    │   └── components/         # React components
-    
-    │       ├── SDGTracker.js
-    
-    │       ├── TestsList.js
-    
-    │       └── DevicesList.js
-    
-    └── public/                 # Static assets
-    
-        └── index.html
+Test API (/api/tests)
+GET /: Get all available tests.
 
-# Installation
+GET /:id: Get a single test by ID.
 
-    1.Prerequisites:Node.js (v18+) 
-    
-        🚄 MongoDB (local instance or MongoDB Atlas)
-        🚄 Git (for cloning)
+POST /: (Admin) Create a new test.
 
-    2.Clone the Repository:
+PUT /:id: (Admin) Update a test.
 
-    git clone https://github.com/yourusername/homedoc-labs.git
-    cd homedoc-labs
-    
-    3. Backend Setup:
+Package API (/api/packages)
+GET /: Get all available packages.
 
-         cd server
-         npm install
+GET /:id: Get a single package by ID.
 
-         ✅ Create a .env file (if scaling): Add JWT_SECRET=yoursecret and MONGO_URI=yourmongouri.
+POST /: (Admin) Create a new package.
 
-    4.Frontend Setup:
+Booking API (/api/bookings)
+POST /: (User) Create a new booking.
 
-         cd ../client
-         npm install
+GET /mybookings: (User) Get all bookings for the logged-in user.
 
+GET /:id: (User/Admin) Get a single booking by ID.
 
-    5.Seed Data (Optional):
-
-      ✅Start MongoDB.
-     
-          ✨Use tools like Postman to add sample tests/devices via /api/tests and /api/devices POST routes.
-          
-          ✨Example Test: { "name": "Complete Blood Count", "price": 50, "sdgImpact": "SDG 3: Early detection" }
-          
-          ✨Example Device: { "name": "Continuous Glucose Monitor", "baseFee": 20, "discount": 0.2, "inventory": 10, "sdgImpact": "SDG 3: Diabetes management" }
-
-# Usage
-
-1. Run the Backend:
-   
-       cd server
-   
-       npm start
-
-2.Run the Frontend:
-
-        cd client
-
-        npm start
-
-   ✅ App opens at http://localhost:3000.
-
-
-
-3.Testing the App:
- 
-        🧿Register/login via API (e.g., Postman: POST /api/auth/register).
-   
-        🧿Browse and book tests/devices from the dashboard.
-   
-        🧿View SDG progress (mock data in App.js; integrate with user API for real).
-   
-        🧿Check MongoDB collections for bookings.
-
- 4.Example Flows:
-
-        🍀Book a Test: Select from list, choose home location → See CO2 savings.
- 
-        🍀Rent a Device: Pick CGM, set duration → Auto-apply discounts if low-income.
-
-        🍀Track Goals: Update progress in user profile (extend User model as needed).
-
-
-# SDG Impact
-
-  This app isn't just functional—it's impactful:
-  
-        ✅Health Promotion (SDG 3): 
-  
-        ✅Enables continuous monitoring to prevent diseases.
-  
-        ✅Inclusivity (SDG 10): Dynamic discounts based on user profiles.
-
-        ✅Sustainability (SDG 13): Reduces travel emissions; tracks and reports savings.
-
-        ✅Future: Aggregate anonymized data for SDG reports to NGOs.
-
-
- # Contributing
-
- Contributions are welcome! Fork the repo, create a branch, and submit a PR. Focus areas:
-         ✨Add payments (Stripe integration).
-         
-         ✨Implement real AI diagnostics.
-         
-         ✨Enhance UI with Bootstrap or Material-UI.
-         
-         ✨Add tests (Jest for backend/frontend).
-
-         🚨Please follow code style (ESLint recommended) and include tests for new features.
-
- # License
-
-   This project is licensed under the MIT License. See LICENSE for details.
-
-
-
-
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
+PUT /:id/status: (Admin) Update the status of a booking.
 
 
 
