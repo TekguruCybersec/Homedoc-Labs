@@ -161,13 +161,13 @@ POST /: (Admin) Create a new package.
 
 ## Booking API (/api/bookings)
 
-**POST /: (User) Create a new booking.
+** POST /: (User) Create a new booking.
 
-**GET /mybookings: (User) Get all bookings for the logged-in user.
+** GET /mybookings: (User) Get all bookings for the logged-in user.
 
-**GET /:id: (User/Admin) Get a single booking by ID.
+** GET /:id: (User/Admin) Get a single booking by ID.
 
-**PUT /:id/status: (Admin) Update the status of a booking.
+** PUT /:id/status: (Admin) Update the status of a booking.
 
 
 
