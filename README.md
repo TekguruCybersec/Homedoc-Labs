@@ -29,7 +29,35 @@ By leveraging technology to create an easy-to-use platform for booking diagnosti
 
 ## 📁 Project Structure
 
-/homedoc-labs | ├── /backend | ├── /config # db.js | ├── /controllers # userController, testController, packageController, bookingController | ├── /middleware # authMiddleware, adminMiddleware | ├── /models # userModel, testModel, packageModel, bookingModel | ├── /routes # All API routes | ├── .env.example | ├── package.json | └── server.js # Main backend entry point | └── /frontend ├── /src | ├── /components # Navbar, TestCard, PackageCard, ProtectedRoute | ├── /context # AuthContext, CartContext | ├── /pages # HomePage, LoginPage, TestsPage, MyBookingsPage, AdminDashboard | ├── App.jsx | ├── index.css # Tailwind directives | └── main.jsx ├── tailwind.config.js ├── postcss.config.js └── package.json
+/homedoc-labs 
+|
+├── /backend 
+| 
+├── /config # db.js 
+| 
+├── /controllers # userController, testController, packageController, bookingController 
+|
+├── /middleware # authMiddleware, adminMiddleware 
+|
+├── /models # userModel, testModel, packageModel, bookingModel
+| 
+├── /routes # All API routes 
+|
+├── .env.example
+| 
+├── package.json
+| 
+└── server.js # Main backend entry point
+| 
+└── /frontend 
+├── /src 
+| 
+├── /components # Navbar, TestCard, PackageCard, ProtectedRoute
+| 
+├── /context # AuthContext, CartContext
+|fig.js
+├── postcss.config.js 
+└── package.json
 
 ---
 ---
@@ -133,13 +161,13 @@ POST /: (Admin) Create a new package.
 
 ## Booking API (/api/bookings)
 
-POST /: (User) Create a new booking.
+**POST /: (User) Create a new booking.
 
-GET /mybookings: (User) Get all bookings for the logged-in user.
+**GET /mybookings: (User) Get all bookings for the logged-in user.
 
-GET /:id: (User/Admin) Get a single booking by ID.
+**GET /:id: (User/Admin) Get a single booking by ID.
 
-PUT /:id/status: (Admin) Update the status of a booking.
+**PUT /:id/status: (Admin) Update the status of a booking.
 
 
 
