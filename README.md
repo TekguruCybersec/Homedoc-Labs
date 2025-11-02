@@ -67,7 +67,7 @@ npm run dev
 
 The server will be running on http://localhost:5000 (or your configured port).
 
-# 2. Frontend Setup
+## 2. Frontend Setup
 
 # Open a new terminal
 cd homedoc-labs/frontend
@@ -83,7 +83,7 @@ The React app will be running on http://localhost:5173.
 ---
 
 ## 🌐 API Endpoints
-User API (/api/users)
+### User API (/api/users)
 POST /register: Register a new user.
 
 POST /login: Log in a user.
