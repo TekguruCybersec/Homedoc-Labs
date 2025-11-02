@@ -44,7 +44,7 @@ By leveraging technology to create an easy-to-use platform for booking diagnosti
 
 ### 1. Backend Setup
 
-```bash
+
 # Clone the repository
 git clone [https://github.com/your-username/homedoc-labs.git](https://github.com/your-username/homedoc-labs.git)
 cd homedoc-labs/backend
@@ -79,11 +79,17 @@ npm install
 npm run dev
 
 The React app will be running on http://localhost:5173.
+
+
 ---
 ---
 
+The React app will be running on http://localhost:5173.
+
 ## 🌐 API Endpoints
+
 ### User API (/api/users)
+
 POST /register: Register a new user.
 
 POST /login: Log in a user.
@@ -104,7 +110,8 @@ GET /:id: Get a single package by ID.
 
 POST /: (Admin) Create a new package.
 
-Booking API (/api/bookings)
+## Booking API (/api/bookings)
+
 POST /: (User) Create a new booking.
 
 GET /mybookings: (User) Get all bookings for the logged-in user.
@@ -112,9 +119,6 @@ GET /mybookings: (User) Get all bookings for the logged-in user.
 GET /:id: (User/Admin) Get a single booking by ID.
 
 PUT /:id/status: (Admin) Update the status of a booking.
-
-
-
 
 
 
