@@ -80,7 +80,7 @@ npm run dev
 
 The React app will be running on http://localhost:5173.
 
-🌐 API Endpoints
+# 🌐 API Endpoints
 User API (/api/users)
 POST /register: Register a new user.
 
