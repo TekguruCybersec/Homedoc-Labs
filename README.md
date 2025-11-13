@@ -56,23 +56,41 @@ Deployment	-Vercel / Render / MongoDB Atlas
 --
 
 /homedoc-labs
+
 ├── /backend
+
 │   ├── /config           # Database connection (db.js)
+
 │   ├── /controllers      # userController, testController, packageController, bookingController
+
 │   ├── /middleware       # clerkMiddleware, adminMiddleware
+
 │   ├── /models           # userModel, testModel, packageModel, bookingModel
+
 │   ├── /routes           # All Express API routes
+
 │   ├── .env.example
+
 │   ├── package.json
+
 │   └── server.js         # Main server entry point
+
 └── /frontend
+
     ├── /src
+    
     │   ├── /components   # Navbar, TestCard, PackageCard, ProtectedRoute
+    
     │   ├── /pages        # Home, Dashboard, Admin, etc.
+    
     │   ├── /context      # CartContext, GlobalContext
+    
     │   └── main.jsx, App.jsx
+    
     ├── tailwind.config.js
+    
     ├── vite.config.js
+    
     └── package.json
 
 
@@ -80,6 +98,7 @@ Deployment	-Vercel / Render / MongoDB Atlas
 --
 
 🧾 Prerequisites
+--
 
 Make sure you have installed:
 
@@ -99,7 +118,7 @@ A Clerk account → https://clerk.com
 git clone https://github.com/your-username/homedoc-labs.git
 cd homedoc-labs
 
----
+
 2. Backend Setup
 --
 cd backend
@@ -114,9 +133,10 @@ CLERK_PUBLISHABLE_KEY=your_clerk_publishable_key
 CLERK_SECRET_KEY=your_clerk_secret_key
 
 Run the backend development server:
+
 👉 http://localhost:5000
 
----
+
 
 3. Frontend Setup
 --
@@ -141,7 +161,8 @@ Your frontend will run on
 🔐 Authentication (Clerk Integration)
 --
 
---
+
+
 🧩 Frontend (React + Vite)
 --
 
@@ -204,7 +225,7 @@ app.listen(process.env.PORT || 5000, () => {
 
 Now only authenticated Clerk users can access /api/bookings routes.
 
---
+
 
 🧱 Role-Based Access
 --
@@ -229,7 +250,7 @@ export const isAdmin = async (req, res, next) => {
   next();
 };
 
----
+
 
 🌐 API Endpoints
 --
@@ -243,7 +264,7 @@ export const isAdmin = async (req, res, next) => {
 | `/api/bookings/:id/status` | PUT    | Update booking status  | Admin         |
 
 
---
+
 
 🚀 Deployment
 --
@@ -266,7 +287,7 @@ Be sure to add the following environment variables in your hosting platform:
 | `MONGO_URI`             | `mongodb+srv://user:pass@cluster.mongodb.net/homedoc` |
 | `PORT`                  | `5000`                                                |
 
----
+
 
 🧠 Future Improvements
 --
@@ -279,7 +300,7 @@ Add multi-language support
 
 Improve admin analytics dashboard
 
----
+
 
 🤝 Contributing
 --
@@ -295,14 +316,14 @@ Commit your changes
 
 Push your branch and open a Pull Request
 
---
+
 
 📜 License
 ---
 
 This project is licensed under the MIT License.
 
---
+
 
 💙 Acknowledgments
 --
@@ -322,7 +343,7 @@ React + Vite
  
  
 🌟 Homedoc Labs — Empowering Preventative Healthcare Through Technology
----
+--
 
 “Good health and well-being start with accessibility, prevention, and early action.”
 
