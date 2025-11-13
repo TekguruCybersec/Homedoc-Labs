@@ -1,5 +1,5 @@
 🏥 Homedoc Labs
---
+---
 
 Homedoc Labs is a full-stack MERN (MongoDB, Express.js, React, Node.js) web application designed to make preventative healthcare accessible and affordable.
 It allows users to browse, select, and book wellness tests and health packages for at-home sample collection.
@@ -31,7 +31,7 @@ Dashboard: Manage and view all personal bookings and appointment status
 (e.g., Pending, Confirmed, Completed)
 
 🛠 Admin Features
---
+---
 
 Role-Based Access Control: Admins can manage (CRUD) all wellness tests, packages, and user bookings
 
@@ -43,7 +43,7 @@ Manage Appointments: Approve, update, or mark tests as completed
 ---
 
 🧰 Tech Stack
---
+---
 Layer	-Technology
 Frontend	-React (Vite), Tailwind CSS, React Router, Clerk
 Backend	-Node.js, Express.js
@@ -52,8 +52,8 @@ Auth	-Clerk Authentication
 Styling	-Tailwind CSS
 Deployment	-Vercel / Render / MongoDB Atlas
 
-### 🧩 Project Structure
---
+ 🧩 Project Structure
+---
 
 /homedoc-labs
 
@@ -77,7 +77,7 @@ Deployment	-Vercel / Render / MongoDB Atlas
 
 └── /frontend
 
-    ├── /src
+ //   ├── /src
     
     │   ├── /components   # Navbar, TestCard, PackageCard, ProtectedRoute
     
@@ -94,11 +94,11 @@ Deployment	-Vercel / Render / MongoDB Atlas
     └── package.json
 
 
-### ⚙️ Installation & Setup
---
+ ⚙️ Installation & Setup
+---
 
 🧾 Prerequisites
---
+---
 
 Make sure you have installed:
 
@@ -159,12 +159,12 @@ Your frontend will run on
 ---
 
 🔐 Authentication (Clerk Integration)
---
+---
 
 
 
 🧩 Frontend (React + Vite)
---
+---
 
 Clerk simplifies authentication with built-in React components and hooks.
 
@@ -200,7 +200,7 @@ export default App;
 
 
 🔒 Backend (Express + Clerk)
---
+---
 
 Example middleware setup (server.js):
 
@@ -228,7 +228,7 @@ Now only authenticated Clerk users can access /api/bookings routes.
 
 
 🧱 Role-Based Access
---
+---
 
 Since Clerk doesn’t manage roles by default, you can store role info in MongoDB or Clerk metadata.
 
@@ -253,7 +253,7 @@ export const isAdmin = async (req, res, next) => {
 
 
 🌐 API Endpoints
---
+---
 
 | Endpoint                   | Method | Description            | Auth          |
 | -------------------------- | ------ | ---------------------- | ------------- |
@@ -267,7 +267,7 @@ export const isAdmin = async (req, res, next) => {
 
 
 🚀 Deployment
---
+---
 
 You can deploy Homedoc Labs using:
 
@@ -290,7 +290,7 @@ Be sure to add the following environment variables in your hosting platform:
 
 
 🧠 Future Improvements
---
+---
 
 Add payment gateway integration (Stripe or Razorpay)
 
@@ -303,7 +303,7 @@ Improve admin analytics dashboard
 
 
 🤝 Contributing
---
+---
 
 Contributions are welcome!
 To contribute:
@@ -326,7 +326,7 @@ This project is licensed under the MIT License.
 
 
 💙 Acknowledgments
---
+---
 
 Clerk
  for authentication
