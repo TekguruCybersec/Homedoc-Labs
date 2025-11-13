@@ -6,6 +6,7 @@ It allows users to browse, select, and book wellness tests and health packages f
 
 This version of the project uses Clerk
  for secure, modern authentication and user management — replacing the previous JWT-based system.
+ 
 ---
 
 🌱 SDG Alignment
@@ -30,16 +31,16 @@ Dashboard: Manage and view all personal bookings and appointment status
 (e.g., Pending, Confirmed, Completed)
 
 🛠 Admin Features
+--
 
 Role-Based Access Control: Admins can manage (CRUD) all wellness tests, packages, and user bookings
 
 Manage Appointments: Approve, update, or mark tests as completed
+
 ---
 
 ## 🚀 Getting Started
 ---
-
---
 
 🧰 Tech Stack
 --
