@@ -87,6 +87,7 @@ A Clerk account → https://clerk.com
 
 git clone https://github.com/your-username/homedoc-labs.git
 cd homedoc-labs
+
 ---
 2. Backend Setup
 cd backend
@@ -258,7 +259,7 @@ Improve admin analytics dashboard
 
 ---
 
-##🤝 Contributing
+**🤝 Contributing
 
 Contributions are welcome!
 To contribute:
@@ -273,13 +274,13 @@ Push your branch and open a Pull Request
 
 --
 
-** 📜 License
+**📜 License
 
 This project is licensed under the MIT License.
 
 --
 
-** 💙 Acknowledgments
+**💙 Acknowledgments
 
 Clerk
  for authentication
