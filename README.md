@@ -1,4 +1,5 @@
 🏥 Homedoc Labs
+--
 
 Homedoc Labs is a full-stack MERN (MongoDB, Express.js, React, Node.js) web application designed to make preventative healthcare accessible and affordable.
 It allows users to browse, select, and book wellness tests and health packages for at-home sample collection.
@@ -8,6 +9,7 @@ This version of the project uses Clerk
 ---
 
 🌱 SDG Alignment
+---
 
 This project supports Sustainable Development Goal 3 (SDG 3): Good Health and Well-being.
 By leveraging technology to streamline booking and diagnostic testing, Homedoc Labs helps promote preventative healthcare, early diagnosis, and accessible health services for all.
@@ -16,6 +18,7 @@ By leveraging technology to streamline booking and diagnostic testing, Homedoc L
 
 ✨ Features
 👤 User Features
+--
 
 Secure Authentication with Clerk (Sign up, Sign in, Sign out)
 
@@ -34,8 +37,12 @@ Manage Appointments: Approve, update, or mark tests as completed
 ---
 
 ## 🚀 Getting Started
+---
+
+--
 
 🧰 Tech Stack
+--
 Layer	-Technology
 Frontend	-React (Vite), Tailwind CSS, React Router, Clerk
 Backend	-Node.js, Express.js
@@ -45,6 +52,7 @@ Styling	-Tailwind CSS
 Deployment	-Vercel / Render / MongoDB Atlas
 
 ### 🧩 Project Structure
+--
 
 /homedoc-labs
 ├── /backend
@@ -68,6 +76,7 @@ Deployment	-Vercel / Render / MongoDB Atlas
 
 
 ### ⚙️ Installation & Setup
+--
 
 🧾 Prerequisites
 
@@ -84,12 +93,14 @@ A Clerk account → https://clerk.com
 ---
 
 1. Clone the Repository
+--
 
 git clone https://github.com/your-username/homedoc-labs.git
 cd homedoc-labs
 
 ---
 2. Backend Setup
+--
 cd backend
 npm install
 ---
@@ -107,6 +118,7 @@ Run the backend development server:
 ---
 
 3. Frontend Setup
+--
 
 cd ../frontend
 npm install
@@ -126,7 +138,11 @@ Your frontend will run on
 ---
 
 🔐 Authentication (Clerk Integration)
+--
+
+--
 🧩 Frontend (React + Vite)
+--
 
 Clerk simplifies authentication with built-in React components and hooks.
 
@@ -162,6 +178,7 @@ export default App;
 
 
 🔒 Backend (Express + Clerk)
+--
 
 Example middleware setup (server.js):
 
@@ -189,6 +206,7 @@ Now only authenticated Clerk users can access /api/bookings routes.
 --
 
 🧱 Role-Based Access
+--
 
 Since Clerk doesn’t manage roles by default, you can store role info in MongoDB or Clerk metadata.
 
@@ -213,6 +231,7 @@ export const isAdmin = async (req, res, next) => {
 ---
 
 🌐 API Endpoints
+--
 
 | Endpoint                   | Method | Description            | Auth          |
 | -------------------------- | ------ | ---------------------- | ------------- |
@@ -226,6 +245,7 @@ export const isAdmin = async (req, res, next) => {
 --
 
 🚀 Deployment
+--
 
 You can deploy Homedoc Labs using:
 
@@ -248,6 +268,7 @@ Be sure to add the following environment variables in your hosting platform:
 ---
 
 🧠 Future Improvements
+--
 
 Add payment gateway integration (Stripe or Razorpay)
 
@@ -259,7 +280,8 @@ Improve admin analytics dashboard
 
 ---
 
-**🤝 Contributing
+🤝 Contributing
+--
 
 Contributions are welcome!
 To contribute:
