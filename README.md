@@ -274,13 +274,15 @@ Push your branch and open a Pull Request
 
 --
 
-**📜 License
+📜 License
+---
 
 This project is licensed under the MIT License.
 
 --
 
-**💙 Acknowledgments
+💙 Acknowledgments
+--
 
 Clerk
  for authentication
@@ -296,7 +298,8 @@ React + Vite
  
  --
  
- ** 🌟 Homedoc Labs — Empowering Preventative Healthcare Through Technology
+🌟 Homedoc Labs — Empowering Preventative Healthcare Through Technology
+---
 
 “Good health and well-being start with accessibility, prevention, and early action.”
 
