@@ -258,7 +258,7 @@ Improve admin analytics dashboard
 
 ---
 
-🤝 Contributing
+##🤝 Contributing
 
 Contributions are welcome!
 To contribute:
@@ -272,12 +272,14 @@ Commit your changes
 Push your branch and open a Pull Request
 
 --
-📜 License
+
+##📜 License
 
 This project is licensed under the MIT License.
 
 --
-💙 Acknowledgments
+
+##💙 Acknowledgments
 
 Clerk
  for authentication
@@ -292,11 +294,13 @@ React + Vite
  for blazing-fast development
  
  --
- 🌟 Homedoc Labs — Empowering Preventative Healthcare Through Technology
+ 
+ ##🌟 Homedoc Labs — Empowering Preventative Healthcare Through Technology
 
 “Good health and well-being start with accessibility, prevention, and early action.”
 
 --
+
 Would you like me to make this README auto-generate badges (e.g., build passing, tech stack logos, or license badges) so it looks even more GitHub-polished?
 
 
