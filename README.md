@@ -1,181 +1,149 @@
-# Homedoc Labs
+# 🩺 Homedoc Labs
 
-Homedoc Labs is a full-stack MERN (MongoDB, Express.js, React, Node.js) web application designed to make preventative healthcare accessible and affordable. Users can browse, select, and book wellness tests and health packages for at-home sample collection.
+Homedoc Labs is a full-stack MERN web application designed to make preventative healthcare accessible and affordable. It allows users to browse, select, and book wellness tests and health packages for at-home sample collection.
 
-This project is built with a modern tech stack, including **Tailwind CSS** for styling and **Vite** for a fast frontend experience.
+This project features a modern stack including React (Vite), Node.js, Express, MongoDB, and Tailwind CSS. The authentication system is fully managed by **Clerk** for robust, secure, and scalable user management.
 
-## 🌱 SDG Alignment
+![Homedoc Labs Screenshot](https.placeholder.image/800x400.png/E0F0FF/333?text=Homedoc+Labs+App+Screenshot)
+*(Replace this with a screenshot of your application's homepage or dashboard)*
 
-This project directly supports **Sustainable Development Goal 3 (SDG 3): Good Health and Well-being**.
+---
 
-By leveraging technology to create an easy-to-use platform for booking diagnostic tests, Homedoc Labs helps promote preventative healthcare, facilitate early diagnosis, and make essential health services more accessible to everyone.
+## ✨ Core Features
 
-## ✨ Features
+* **Clerk Authentication:** Secure user sign-up, sign-in, and session management handled by Clerk, including social logins and multi-factor authentication right out of the box.
+* **Browse Services:** A public catalog of all available wellness tests and comprehensive health packages.
+* **Booking System:** Authenticated users can easily book tests or packages for a specific date.
+* **User Dashboard:** A private, protected route where users can view their booking history and check the status of their appointments.
+* **Admin Panel:** Role-based access for administrators to manage tests, packages, and all user bookings (e.g., update booking status).
 
-* **User Authentication:** Secure user registration and login with JWT (JSON Web Tokens).
-* **Browse Services:** Publicly view a catalog of individual wellness tests and bundled health packages.
-* **Booking System:** Authenticated users can book tests/packages for a specific date.
-* **User Dashboard:** Users can view their personal booking history and track the status of their appointments (e.g., Pending, Confirmed, Completed).
-* **Admin Panel:** (Role-based) Admins can perform CRUD (Create, Read, Update, Delete) operations on tests and packages and manage all user bookings.
+---
 
-## 🛠 Tech Stack
+## 💻 Tech Stack
 
 * **Frontend:** React (Vite), Tailwind CSS, React Router
 * **Backend:** Node.js, Express.js
 * **Database:** MongoDB (with Mongoose)
-* **Authentication:** JSON Web Tokens (JWT), bcrypt.js
+* **Authentication:** **Clerk**
 
----
-
-## 📁 Project Structure
-
-/homedoc-labs 
-|
-├── /backend 
-| 
-├── /config # db.js 
-| 
-├── /controllers # userController, testController, packageController, bookingController 
-|
-├── /middleware # authMiddleware, adminMiddleware 
-|
-├── /models # userModel, testModel, packageModel, bookingModel
-| 
-├── /routes # All API routes 
-|
-├── .env.example
-| 
-├── package.json
-| 
-└── server.js # Main backend entry point
-| 
-└── /frontend 
-├── /src 
-| 
-├── /components # Navbar, TestCard, PackageCard, ProtectedRoute
-| 
-├── /context # AuthContext, CartContext
-|fig.js
-├── postcss.config.js 
-└── package.json
-
----
 ---
 
 ## 🚀 Getting Started
 
+Follow these instructions to get a copy of the project up and running on your local machine for development and testing purposes.
+
 ### Prerequisites
 
-* Node.js (v18.x or later)
-* MongoDB (A local instance or a free MongoDB Atlas cluster)
-* `npm` (or `yarn`)
+* **Node.js:** v18.x or later
+* **MongoDB:** A local MongoDB instance or a cloud-based URI (e.g., from MongoDB Atlas)
+* **Clerk Account:** A free account from [Clerk.dev](https://clerk.com/) to get your API keys.
 
-----
+### 1. Environment Setup
 
-### 1. Backend Setup
+This project requires environment variables for both the frontend and backend.
 
+**A. Clerk Configuration:**
 
-# Clone the repository
-git clone [https://github.com/your-username/homedoc-labs.git](https://github.com/your-username/homedoc-labs.git)
-cd homedoc-labs/backend
+1.  Go to your [Clerk Dashboard](https://dashboard.clerk.com/) and create a new application.
+2.  Note your **Publishable Key** (for frontend) and **Secret Key** (for backend).
+3.  In the Clerk dashboard, navigate to "Domains" and ensure `http://localhost:5173` (frontend) and `http://localhost:5000` (backend) are allowed.
 
-# Install dependencies
-npm install
+**B. Environment Files:**
 
-# Create your environment file
-cp .env.example .env
+1.  **Backend:** In the `/backend` directory, create a `.env` file:
 
-//Now, edit the .env file with your MongoDB connection string and a strong JWT secret:
+    ```.env
+    # MongoDB
+    MONGO_URI=your_mongodb_connection_string
 
- # Code snippet
- 
-MONGO_URI=your_mongodb_connection_string
-JWT_SECRET=your_super_strong_secret_key
+    # Server Port
+    PORT=5000
 
- # Bash
-# Run the backend server
-npm run dev
+    # Clerk Secret Key
+    CLERK_SECRET_KEY=sk_...
+    ```
 
-The server will be running on http://localhost:5000 (or your configured port).
+2.  **Frontend:** In the `/frontend` directory, create a `.env` file:
 
+    ```.env
+    # Clerk Publishable Key (must have VITE_ prefix)
+    VITE_CLERK_PUBLISHABLE_KEY=pk_...
+
+    # Backend API URL
+    VITE_API_URL=http://localhost:5000
+    ```
+
+### 2. Installation & Running
+
+1.  **Clone the repository:**
+    ```bash
+    git clone [https://github.com/your-username/homedoc-labs.git](https://github.com/your-username/homedoc-labs.git)
+    cd homedoc-labs
+    ```
+
+2.  **Install Backend Dependencies:**
+    (Open a terminal in the `/backend` directory)
+    ```bash
+    cd backend
+    npm install
+    ```
+
+3.  **Install Frontend Dependencies:**
+    (Open a *second* terminal in the `/frontend` directory)
+    ```bash
+    cd frontend
+    npm install
+    ```
+
+4.  **Run the Backend Server:**
+    (In your first terminal, from the `/backend` directory)
+    ```bash
+    npm run dev 
+    # Or 'npm start', depending on your package.json scripts
+    ```
+    The backend server will start on `http://localhost:5000`.
+
+5.  **Run the Frontend App:**
+    (In your second terminal, from the `/frontend` directory)
+    ```bash
+    npm run dev
+    ```
+    The Vite development server will start on `http://localhost:5173`.
+
+You can now open `http://localhost:5173` in your browser to use the application.
+
+---
+
+## 🧩 Project Structure
+
+The project uses a monorepo-like structure, separating the client and server.
+---
+
+## 📁 Project Structure
+
+/homedoc-labs ├── /backend # Express.js API │ ├── /config # db.js │ ├── /controllers # Request/response logic │ ├── /middleware # Clerk authentication & admin checks │ ├── /models # Mongoose schemas │ ├── /routes # API routes │ └── server.js # Express server entry point │ └── /frontend # React (Vite) Client ├── /src │ ├── /components # Reusable React components │ ├── /pages # Route-level components │ ├── /utils # Helper functions │ ├── App.jsx # Main app component (routing) │ └── main.jsx # React entry point (ClerkProvider) ├── tailwind.config.js └── vite.config.js
+---
 ---
 
 ---
 
+## 🔐 Authentication & Roles
 
-### 2. Frontend Setup
+### Authentication
+Authentication is handled entirely by Clerk. The frontend uses Clerk's pre-built components (`<SignIn>`, `<SignUp>`, `<UserButton>`) and hooks (`useAuth`, `useUser`). Protected API routes on the backend are verified using Clerk's Express middleware.
 
-# Open a new terminal
-cd homedoc-labs/frontend
+### Role-Based Access (Admin)
+Admin access is managed using **Clerk's organization metadata** or **user `publicMetadata`**.
 
-# Install dependencies
-npm install
-
-# Run the frontend development server
-npm run dev
-
-The React app will be running on http://localhost:5173.
-
-
----
----
-
-The React app will be running on http://localhost:5173.
-
----
----
-
-## 🌐 API Endpoints
+* A user with `publicMetadata: { role: "admin" }` is considered an admin.
+* The `/backend/middleware/clerkMiddleware.js` contains an `admin` check that verifies this metadata after successful authentication.
+* This metadata can be set manually in the Clerk Dashboard.
 
 ---
 
-## User API (/api/users)
+## 📄 License
 
-POST /register: Register a new user.
-
-POST /login: Log in a user.
-
----
-
-## Test API (/api/tests)
-
-GET /: Get all available tests.
-
-GET /:id: Get a single test by ID.
-
-POST /: (Admin) Create a new test.
-
-PUT /:id: (Admin) Update a test.
-
----
-
-## Package API (/api/packages)
-
-GET /: Get all available packages.
-
-GET /:id: Get a single package by ID.
-
-POST /: (Admin) Create a new package.
-
----
-
-## Booking API (/api/bookings)
-
-** POST /: (User) Create a new booking.
-
-** GET /mybookings: (User) Get all bookings for the logged-in user.
-
-** GET /:id: (User/Admin) Get a single booking by ID.
-
-** PUT /:id/status: (Admin) Update the status of a booking.
-
-
-
-
-
-
-
-
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
 
 
