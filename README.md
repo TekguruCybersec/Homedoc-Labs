@@ -56,58 +56,111 @@ Deployment	-Vercel / Render / MongoDB Atlas
 ---
 
 homedoc-labs/
+
 │
+
 ├── backend/
+
 │   ├── config/
-│   │   └── db.js                      # MongoDB connection logic
+
+│   │   └── db.js   # MongoDB connection logic
+
 │   │
+
 │   ├── controllers/
+
 │   │   ├── bookingController.js       # Booking logic (single/multi-test)
+
 │   │   ├── testController.js          # CRUD for tests/packages
+
 │   │   └── userController.js          # Admin user management
+
 │   │
+
 │   ├── models/
+
 │   │   ├── Booking.js                 # Booking schema
+
 │   │   ├── Test.js                    # Single test / package schema with price
+
 │   │   └── User.js                    # Clerk user ID + role
+
 │   │
+
 │   ├── routes/
+
 │   │   ├── bookings.js                # /api/bookings
+
 │   │   ├── tests.js                   # /api/tests
+
 │   │   └── users.js                   # /api/users (admin only)
+
 │   │
+
 │   ├── middleware/
+
 │   │   ├── auth.js                    # Clerk auth + role checks
+
 │   │   └── errorHandler.js            # Centralized error handling
+
 │   │
+
 │   ├── server.js                       # Express server + Socket.IO
+
 │   └── .env                            # DB + Clerk credentials
+
 │
+
 ├── frontend/
+
 │   ├── src/
+
 │   │   ├── api/
+
 │   │   │   └── api.js                  # Axios instance for backend API
+
 │   │   │
+
 │   │   ├── components/
+
 │   │   │   ├── Navbar.jsx
+
 │   │   │   ├── TestCard.jsx
+
 │   │   │   ├── PackageCard.jsx
+
 │   │   │   └── ProtectedRoute.jsx      # Role-based route protection
+
 │   │   │
+
 │   │   ├── pages/
+
 │   │   │   ├── Home.jsx
 │   │   │   ├── Dashboard.jsx           # User bookings & status
+
 │   │   │   ├── AdminPanel.jsx          # Admin view + real-time booking updates
+
 │   │   │   └── BookingForm.jsx         # Single/multi-test booking workflow
+
 │   │   │
+
 │   │   ├── App.jsx
+
 │   │   ├── main.jsx                     # ClerkProvider integration
+
+
 │   │   └── index.css                    # Tailwind CSS styling
+
 │   │
+
 │   ├── vite.config.js                    # Vite + proxy setup
+
 │   └── .env                              # Clerk frontend keys + API base URL
+
 │
+
 ├── package.json
+
 └── README.md
 
 ---
