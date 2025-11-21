@@ -1,10 +1,9 @@
 // backend/middleware/auth.js
-const { clerkClient } = require("@clerk/backend");
+const { verifyToken } = require("@clerk/backend");
 const User = require("../models/User");
 
 //
 // Middleware: Require Authentication
-// Validates Clerk JWT (sent from frontend as Bearer token)
 //
 const requireAuth = async (req, res, next) => {
   try {
@@ -16,42 +15,60 @@ const requireAuth = async (req, res, next) => {
 
     const token = authHeader.replace("Bearer ", "").trim();
 
-    // Verify the token with Clerk
-    const session = await clerkClient.sessions.verifySession(token);
+    // Verify JWT from Clerk
+    const decoded = await verifyToken(token, {
+      secretKey: process.env.CLERK_SECRET_KEY,
+      audience: process.env.CLERK_JWT_TEMPLATE_NAME || undefined,
+    });
 
-    if (!session || !session.userId) {
+    if (!decoded || !decoded.sub) {
       return res.status(401).json({ message: "Unauthorized" });
     }
 
-    req.auth = {
-      userId: session.userId,
-      sessionId: session.id,
-    };
+    const clerkId = decoded.sub;
 
+    // Extract details from Clerk token
+    const email =
+      decoded.email ||
+      decoded.email_address ||
+      decoded.email_addresses?.[0]?.email_address ||
+      null;
+
+    const firstName = decoded.first_name || "";
+    const lastName = decoded.last_name || "";
+
+    // Attach auth object (similar to Clerk)
+    req.auth = { userId: clerkId };
+
+    // 🔥 Ensure user exists in MongoDB
+    let user = await User.findOne({ clerkId });
+
+    if (!user) {
+      user = await User.create({
+        clerkId,
+        email,
+        name: `${firstName} ${lastName}`.trim(),
+        role: "user",
+      });
+    }
+
+    req.localUser = user;
     next();
   } catch (err) {
-    console.error("Auth error:", err.message);
-    return res.status(401).json({ message: "Invalid or expired token" });
+    console.error("Auth error:", err);
+    return res.status(401).json({ message: "Invalid or expired Clerk token" });
   }
 };
 
 //
 // Middleware: Require Admin Role
-// Uses your MongoDB User model to check role
 //
 const requireAdmin = async (req, res, next) => {
   try {
-    if (!req.auth || !req.auth.userId) {
-      return res.status(401).json({ message: "Not authenticated" });
+    if (!req.localUser || req.localUser.role !== "admin") {
+      return res.status(403).json({ message: "Admin access only" });
     }
 
-    const user = await User.findOne({ clerkId: req.auth.userId });
-
-    if (!user || user.role !== "admin") {
-      return res.status(403).json({ message: "Access denied" });
-    }
-
-    req.localUser = user;
     next();
   } catch (err) {
     next(err);

@@ -1,33 +1,66 @@
-const API = import.meta.env.VITE_API_URL || '';
+import { getToken } from "@clerk/clerk-react";
 
-export async function fetchClients(){
-    const res = await fetch(`${API}/clients`);
-    if(!res.ok) throw new Error("Failed to fetch");
-    return res.json();
+// Normalize API base URL
+const RAW_API = import.meta.env.VITE_API_URL || "";
+const API = RAW_API.replace(/\/+$/, "");
+
+async function handleResponse(res) {
+  if (!res.ok) {
+    const message = await res.text();
+    throw new Error(message || "Request failed");
+  }
+  return res.json();
 }
 
-export async function createClient(payload){
-    const res = await fetch(`${API}/clients`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
-    });
-    if(!res.ok) throw new Error('Failed to create client');
-    return res.json();
+// Helper: attach Authorization header if logged in
+async function authHeaders() {
+  const token = await getToken({ template: "default" });
+  return token
+    ? { Authorization: `Bearer ${token}`, "Content-Type": "application/json" }
+    : { "Content-Type": "application/json" };
 }
 
-export async function updateClient(id, payload){
-    const res = await fetch(`${API}/clients/${id}`, {
-        method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
-    });
-    if(!res.ok) throw new Error('Failed to update client');
-    return res.json();
+/* --------------------------------------------------
+   TESTS API  →  PUBLIC ROUTE → /api/tests
+--------------------------------------------------- */
+export async function fetchTests() {
+  const res = await fetch(`${API}/api/tests`);
+  return handleResponse(res);
 }
 
-export async function deleteClient(id){
-    const res = await fetch(`${API}/clients/${id}`, { method: 'DELETE' });
-    if(!res.ok) throw new Error('Failed to delete client');
-    return res.json();
+/* --------------------------------------------------
+   BOOKINGS API  →  PROTECTED ROUTES
+--------------------------------------------------- */
+export async function createBooking(payload) {
+  const headers = await authHeaders();
+  const res = await fetch(`${API}/api/bookings`, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(payload),
+  });
+  return handleResponse(res);
+}
+
+export async function fetchUserBookings() {
+  const headers = await authHeaders();
+  const res = await fetch(`${API}/api/bookings`, { headers });
+  return handleResponse(res);
+}
+
+/* --------------------------------------------------
+   ADMIN BOOKINGS  →  PROTECTED + ADMIN ONLY
+--------------------------------------------------- */
+export async function fetchAllBookings() {
+  const headers = await authHeaders();
+  const res = await fetch(`${API}/api/bookings/all`, { headers });
+  return handleResponse(res);
+}
+
+/* --------------------------------------------------
+   USER PROFILE  →  PROTECTED ROUTE
+--------------------------------------------------- */
+export async function fetchUserProfile() {
+  const headers = await authHeaders();
+  const res = await fetch(`${API}/api/users/me`, { headers });
+  return handleResponse(res);
 }

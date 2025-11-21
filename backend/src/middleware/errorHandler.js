@@ -1,40 +1,73 @@
 // backend/middleware/errorHandler.js
 
 const errorHandler = (err, req, res, next) => {
-  console.error("ERROR:", err);
+  console.error("🔥 Backend Error:", err);
 
   // Default values
-  let status = err.status || 500;
-  let message = err.message || "Server error";
+  const statusCode = err.statusCode || err.status || 500;
+  let message = err.message || "Internal server error";
 
-  // Handle Mongoose validation errors
+  //
+  // Mongoose Validation Errors
+  //
   if (err.name === "ValidationError") {
-    status = 400;
     message = Object.values(err.errors)
-      .map((val) => val.message)
+      .map((e) => e.message)
       .join(", ");
+
+    return res.status(400).json({
+      status: "fail",
+      message,
+    });
   }
 
-  // Handle duplicate key errors (MongoDB)
+  //
+  // MongoDB Duplicate Key (code = 11000)
+  //
   if (err.code === 11000) {
-    status = 400;
-    const duplicatedField = Object.keys(err.keyValue)[0];
-    message = `${duplicatedField} already exists`;
+    const field = Object.keys(err.keyValue)[0];
+    return res.status(400).json({
+      status: "fail",
+      message: `${field} already exists`,
+    });
   }
 
-  // Handle cast errors (invalid IDs, etc.)
+  //
+  // Invalid ObjectId (CastError)
+  //
   if (err.name === "CastError") {
-    status = 400;
-    message = `Invalid ${err.path}: ${err.value}`;
+    return res.status(400).json({
+      status: "fail",
+      message: `Invalid ${err.path}: ${err.value}`,
+    });
   }
 
-  // In production, hide stack traces
-  const response = {
-    message,
-    ...(process.env.NODE_ENV !== "production" && { stack: err.stack }),
-  };
+  //
+  // Clerk / JWT Errors → sanitize them
+  //
+  if (
+    err.name === "TokenError" ||
+    err.message?.toLowerCase().includes("jwt") ||
+    err.message?.toLowerCase().includes("token") ||
+    err.message?.toLowerCase().includes("clerk")
+  ) {
+    return res.status(401).json({
+      status: "fail",
+      message: "Invalid or expired authentication token",
+    });
+  }
 
-  res.status(status).json(response);
+  //
+  // Default Response
+  //
+  return res.status(statusCode).json({
+    status: statusCode >= 500 ? "error" : "fail",
+    message,
+    ...(process.env.NODE_ENV !== "production" && {
+      stack: err.stack,
+      error: err,
+    }),
+  });
 };
 
 module.exports = errorHandler;

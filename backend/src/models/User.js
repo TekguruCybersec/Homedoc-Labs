@@ -3,15 +3,40 @@ const mongoose = require("mongoose");
 
 const userSchema = new mongoose.Schema(
   {
-    clerkId: { type: String, required: true, unique: true }, // Clerk user id
-    email: { type: String },
-    name: { type: String },
+    clerkId: {
+      type: String,
+      required: true,
+      unique: true,
+      index: true, // Faster lookups by Clerk ID
+    },
+
+    email: {
+      type: String,
+      required: false,
+    },
+
+    name: {
+      type: String,
+      required: false,
+    },
+
+    imageUrl: {
+      type: String, // Clerk profile image
+      required: false,
+    },
+
+    phone: {
+      type: String,
+      required: false, // Optional: Clerk phone number if enabled
+    },
+
     role: {
       type: String,
       enum: ["user", "admin"],
       default: "user",
     },
-    // any other fields you want to store locally
+
+    // if you ever need a local cart, address, appointments, etc., add here
   },
   { timestamps: true }
 );
