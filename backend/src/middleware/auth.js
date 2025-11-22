@@ -37,10 +37,10 @@ const requireAuth = async (req, res, next) => {
     const firstName = decoded.first_name || "";
     const lastName = decoded.last_name || "";
 
-    // Attach auth object (similar to Clerk)
+    // Attach auth info
     req.auth = { userId: clerkId };
 
-    // 🔥 Ensure user exists in MongoDB
+    // Ensure user exists in MongoDB
     let user = await User.findOne({ clerkId });
 
     if (!user) {
@@ -53,6 +53,7 @@ const requireAuth = async (req, res, next) => {
     }
 
     req.localUser = user;
+
     next();
   } catch (err) {
     console.error("Auth error:", err);
@@ -64,15 +65,11 @@ const requireAuth = async (req, res, next) => {
 // Middleware: Require Admin Role
 //
 const requireAdmin = async (req, res, next) => {
-  try {
-    if (!req.localUser || req.localUser.role !== "admin") {
-      return res.status(403).json({ message: "Admin access only" });
-    }
-
-    next();
-  } catch (err) {
-    next(err);
+  if (!req.localUser || req.localUser.role !== "admin") {
+    return res.status(403).json({ message: "Admin access only" });
   }
+
+  next();
 };
 
 module.exports = { requireAuth, requireAdmin };

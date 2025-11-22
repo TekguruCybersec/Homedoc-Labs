@@ -8,7 +8,7 @@ const {
   deleteTest,
 } = require("../controllers/testController");
 
-const { ClerkExpressRequireAuth, requireAdmin } = require("../middleware/auth");
+const { requireAuth, requireAdmin } = require("../middleware/auth");
 
 const router = express.Router();
 
@@ -17,8 +17,8 @@ router.get("/", getTests);
 router.get("/:id", getTestById);
 
 // Admin Routes
-router.post("/", ClerkExpressRequireAuth, requireAdmin, createTest);
-router.put("/:id", ClerkExpressRequireAuth, requireAdmin, updateTest);
-router.delete("/:id", ClerkExpressRequireAuth, requireAdmin, deleteTest);
+router.post("/", requireAuth, requireAdmin, createTest);
+router.put("/:id", requireAuth, requireAdmin, updateTest);
+router.delete("/:id", requireAuth, requireAdmin, deleteTest);
 
 module.exports = router;

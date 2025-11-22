@@ -6,20 +6,23 @@ const {
   getAllBookings 
 } = require("../controllers/bookingController");
 
+const authMiddleware = require("../middleware/auth");
+
+
 const { 
-  ClerkExpressRequireAuth, 
+  requireAuth,
   requireAdmin 
-} = require("../middleware/auth");
+} = authMiddleware;
 
 const router = express.Router();
 
-// Admin: Get ALL bookings
-router.get("/all", ClerkExpressRequireAuth, requireAdmin, getAllBookings);
+// Admin: Get ALL bookings (Line 17 is HERE)
+router.get("/all", requireAuth, requireAdmin, getAllBookings);
 
 // Create a new booking (Authenticated user)
-router.post("/", ClerkExpressRequireAuth, createBooking);
+router.post("/", requireAuth, createBooking);
 
 // Get authenticated user's bookings
-router.get("/", ClerkExpressRequireAuth, getUserBookings);
+router.get("/", requireAuth, getUserBookings);
 
 module.exports = router;

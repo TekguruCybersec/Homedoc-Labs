@@ -1,5 +1,6 @@
 // backend/controllers/bookingController.js
-const Booking = require("..src/models/Booking");
+
+const Booking = require("../models/Booking");
 const Test = require("../models/Test");
 
 //
@@ -9,33 +10,40 @@ const createBooking = async (req, res, next) => {
   try {
     const { tests, appointmentDate } = req.body;
 
-    // Validate inputs
+    // Validate selected tests
     if (!tests || !Array.isArray(tests) || tests.length === 0) {
       return res.status(400).json({ message: "No tests selected." });
     }
 
+    // Validate appointment date
     if (!appointmentDate) {
-      return res.status(400).json({ message: "Appointment date is required." });
+      return res.status(400).json({
+        message: "Appointment date is required.",
+      });
     }
 
-    // Fetch test details
+    // Fetch test docs (ensure valid IDs)
     const testDocs = await Test.find({ _id: { $in: tests } });
+
     if (testDocs.length === 0) {
-      return res.status(400).json({ message: "Invalid test IDs." });
+      return res.status(400).json({
+        message: "Invalid test IDs.",
+      });
     }
 
+    // Total price calculation
     const totalPrice = testDocs.reduce((sum, t) => sum + t.price, 0);
 
     // Create booking
     const booking = await Booking.create({
-      userId: req.auth.userId, // Clerk user ID
+      userId: req.auth.userId, // Clerk User ID
       tests,
       appointmentDate,
       totalPrice,
       status: "pending",
     });
 
-    // Emit real-time admin notification
+    // Notify admins via Socket.IO
     const io = req.app.get("io");
     if (io) {
       io.to("admin").emit("new-booking", {
